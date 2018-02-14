@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" 
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<context id="Mysql" targetRuntime="MyBatis3Simple"
+		defaultModelType="flat">
+		<property name="beginningDelimiter" value="`" />
+		<property name="endingDelimiter" value="`" />
+
+		<plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+			<property name="mappers" value="com.songdexv.springboot.dao.mapper.CommonTestMapper" />
+		</plugin>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://10.101.23.246:8801/test" userId="admin"
+			password="st0078">
+		</jdbcConnection>
+
+		<javaModelGenerator targetPackage="com.songdexv.springboot.dao.model.test"
+			targetProject="src/main/java" />
+
+		<sqlMapGenerator targetPackage="test"
+			targetProject="src/main/resources/mappers" />
+
+		<javaClientGenerator targetPackage="com.songdexv.springboot.dao.mapper.test"
+			targetProject="src/main/java" type="XMLMAPPER" />
+
+		<table tableName="sys_role" domainObjectName="SysRole">
+			<!--mysql 配置 -->
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+			<!--oracle 配置 -->
+			<!--<generatedKey column="id" sqlStatement="select SEQ_{1}.nextval from 
+				dual" identity="false" type="pre"/> -->
+		</table>
+		<table tableName="sys_user" domainObjectName="SysUser">
+			<!--mysql 配置 -->
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+			<!--oracle 配置 -->
+			<!--<generatedKey column="id" sqlStatement="select SEQ_{1}.nextval from
+				dual" identity="false" type="pre"/> -->
+		</table>
+		<table tableName="sys_url" domainObjectName="SysUrl">
+			<!--mysql 配置 -->
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+			<!--oracle 配置 -->
+			<!--<generatedKey column="id" sqlStatement="select SEQ_{1}.nextval from
+				dual" identity="false" type="pre"/> -->
+		</table>
+		<table tableName="sys_url_role" domainObjectName="SysUrlRole">
+			<!--mysql 配置 -->
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+			<!--oracle 配置 -->
+			<!--<generatedKey column="id" sqlStatement="select SEQ_{1}.nextval from
+				dual" identity="false" type="pre"/> -->
+		</table>
+		<table tableName="sys_user_role" domainObjectName="SysUserRole">
+
+		</table>
+	</context>
+</generatorConfiguration>

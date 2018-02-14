@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.songdexv.springboot.dao.mapper.test.SysUserRoleMapper">
+  <resultMap id="BaseResultMap" type="com.songdexv.springboot.dao.model.test.SysUserRole">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="sys_user_id" jdbcType="BIGINT" property="sysUserId" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+  </resultMap>
+  <resultMap id="BaseResultMap" type="com.songdexv.springboot.dao.model.test.SysUserRole">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="sys_user_id" jdbcType="BIGINT" property="sysUserId" />
+    <result column="role_id" jdbcType="BIGINT" property="roleId" />
+  </resultMap>
+  <resultMap id="BaseResultMap" type="com.songdexv.springboot.dao.model.test.SysUserRole">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="sys_user_id" jdbcType="BIGINT" property="sysUserId" />
+    <result column="role_id" jdbcType="BIGINT" property="roleId" />
+  </resultMap>
+</mapper>

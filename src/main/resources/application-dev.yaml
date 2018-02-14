@@ -1,0 +1,67 @@
+server:
+  port: 8080
+spring:
+    datasource:
+      test:
+        name: test
+        url: jdbc:mysql://127.0.0.1:3306/test
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+      test2:
+        name: test
+        url: jdbc:mysql://127.0.0.1:3306/test2
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+    cache:
+      cache-names: users,orders
+      caffeine:
+        spec: maximumSize=500,expireAfterAccess=60s
+      type: caffeine
+logging:
+  level:
+    root: INFO
+    com.baifubao: DEBUG
+
+management:
+  security:
+    enabled: false
+
+zookeeper:
+  connectString: 127.0.0.1:2181
+  serverRoot: /servers
+  supergwServerListPath: /servers/supergw
+  certmngServerListPath: /servers/certmng
+
+web:
+  security:
+    autoconfig: true
+    loginUrl: http://locahost/login
+    decision: UnanimousBased
