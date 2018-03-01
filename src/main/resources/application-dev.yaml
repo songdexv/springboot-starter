@@ -48,7 +48,7 @@ spring:
 logging:
   level:
     root: INFO
-    com.baifubao: DEBUG
+    com.songdexv: DEBUG
 
 management:
   security:
