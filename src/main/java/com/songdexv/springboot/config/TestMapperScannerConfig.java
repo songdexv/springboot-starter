@@ -16,7 +16,7 @@ public class TestMapperScannerConfig {
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("testSqlSessionFactory");
-        mapperScannerConfigurer.setBasePackage("com.baifubao.springboot.dao.mapper.test");
+        mapperScannerConfigurer.setBasePackage("com.songdexv.springboot.dao.mapper.test");
         return mapperScannerConfigurer;
     }
 }

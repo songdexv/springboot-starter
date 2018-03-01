@@ -44,7 +44,7 @@ public class TestDataSourceConfig {
             throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
-        bean.setTypeAliasesPackage("com.baifubao.springboot.dao.model.test");
+        bean.setTypeAliasesPackage("com.songdexv.springboot.dao.model.test");
         bean.setMapperLocations(
                 new PathMatchingResourcePatternResolver().getResources("classpath:mappers/test/*.xml"));
         PageInterceptor pageInterceptor = new PageInterceptor();
