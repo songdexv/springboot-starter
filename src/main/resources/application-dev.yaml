@@ -45,6 +45,20 @@ spring:
       caffeine:
         spec: maximumSize=500,expireAfterAccess=60s
       type: caffeine
+    redis:
+      database: 0
+      #host: 10.94.182.100
+      #port: 8813
+      password: passwd
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: 5000
+        min-idle: 2
+      timeout: 10000
+      sentinel:
+        master: mymaster
+        nodes: 10.94.182.99:8479,10.94.182.101:8479,10.94.173.219:8479
 logging:
   level:
     root: INFO
@@ -53,6 +67,9 @@ logging:
 management:
   security:
     enabled: false
+  info:
+    git:
+      mode: full
 
 zookeeper:
   connectString: 127.0.0.1:2181
@@ -62,6 +79,6 @@ zookeeper:
 
 web:
   security:
-    autoconfig: true
+    autoconfig: false
     loginUrl: http://locahost/login
     decision: UnanimousBased

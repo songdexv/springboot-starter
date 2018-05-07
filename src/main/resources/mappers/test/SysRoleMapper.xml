@@ -9,36 +9,5 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="memo" jdbcType="VARCHAR" property="memo" />
   </resultMap>
-  <resultMap id="BaseResultMap" type="com.songdexv.springboot.dao.model.test.SysRole">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="memo" jdbcType="VARCHAR" property="memo" />
-  </resultMap>
-  <resultMap id="BaseResultMap" type="com.songdexv.springboot.dao.model.test.SysRole">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="memo" jdbcType="VARCHAR" property="memo" />
-  </resultMap>
-  <resultMap id="BaseResultMap" type="com.songdexv.springboot.dao.model.test.SysRole">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="memo" jdbcType="VARCHAR" property="memo" />
-  </resultMap>
-  <resultMap id="BaseResultMap" type="com.songdexv.springboot.dao.model.test.SysRole">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="memo" jdbcType="VARCHAR" property="memo" />
-  </resultMap>
+
 </mapper>

@@ -9,28 +9,5 @@
     <result column="url" jdbcType="VARCHAR" property="url" />
     <result column="role_id" jdbcType="BIGINT" property="roleId" />
   </resultMap>
-  <resultMap id="BaseResultMap" type="com.songdexv.springboot.dao.model.test.UrlRole">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="url" jdbcType="VARCHAR" property="url" />
-    <result column="role_id" jdbcType="BIGINT" property="roleId" />
-  </resultMap>
-  <resultMap id="BaseResultMap" type="com.songdexv.springboot.dao.model.test.UrlRole">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="url" jdbcType="VARCHAR" property="url" />
-    <result column="role_id" jdbcType="BIGINT" property="roleId" />
-  </resultMap>
-  <resultMap id="BaseResultMap" type="com.songdexv.springboot.dao.model.test.UrlRole">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="url" jdbcType="VARCHAR" property="url" />
-    <result column="role_id" jdbcType="BIGINT" property="roleId" />
-  </resultMap>
+
 </mapper>

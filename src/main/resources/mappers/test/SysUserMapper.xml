@@ -9,36 +9,4 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="passwd" jdbcType="VARCHAR" property="passwd" />
   </resultMap>
-  <resultMap id="BaseResultMap" type="com.songdexv.springboot.dao.model.test.SysUser">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="passwd" jdbcType="VARCHAR" property="passwd" />
-  </resultMap>
-  <resultMap id="BaseResultMap" type="com.songdexv.springboot.dao.model.test.SysUser">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="passwd" jdbcType="VARCHAR" property="passwd" />
-  </resultMap>
-  <resultMap id="BaseResultMap" type="com.songdexv.springboot.dao.model.test.SysUser">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="passwd" jdbcType="VARCHAR" property="passwd" />
-  </resultMap>
-  <resultMap id="BaseResultMap" type="com.songdexv.springboot.dao.model.test.SysUser">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="passwd" jdbcType="VARCHAR" property="passwd" />
-  </resultMap>
 </mapper>

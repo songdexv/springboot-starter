@@ -56,12 +56,12 @@ import com.songdexv.springboot.constant.Constant;
 /**
  * Created by songdexv on 2017/8/7.
  */
-@Configuration
-@EnableConfigurationProperties(WebSecurityConfigProperties.class)
-@ConditionalOnClass({EnableWebSecurity.class, AuthenticationEntryPoint.class})
-@ConditionalOnExpression("${web.security.autoconfig:false}")
-@ConditionalOnWebApplication
-@EnableWebSecurity
+//@Configuration
+//@EnableConfigurationProperties(WebSecurityConfigProperties.class)
+//@ConditionalOnClass({EnableWebSecurity.class, AuthenticationEntryPoint.class})
+//@ConditionalOnExpression("${web.security.autoconfig:false}")
+//@ConditionalOnWebApplication
+//@EnableWebSecurity
 public class WebSecurityConfig {
     private static List<String> DEFAULT_IGNORED = Arrays.asList("/css/**", "/js/**",
             "/images/**", "/**/favicon.ico");

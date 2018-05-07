@@ -21,7 +21,7 @@ public class OrderService {
     @Autowired
     private TOrderMapper orderMapper;
 
-    @Transactional(value = "test2TransactionManager")
+//    @Transactional(value = "test2TransactionManager")
     public int saveOrder(long userId, String orderName, long orderAmount) {
         TOrder order = new TOrder();
         order.setUserId(userId);

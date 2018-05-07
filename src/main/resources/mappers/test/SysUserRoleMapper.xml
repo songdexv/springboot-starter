@@ -8,18 +8,4 @@
     <result column="sys_user_id" jdbcType="BIGINT" property="sysUserId" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
   </resultMap>
-  <resultMap id="BaseResultMap" type="com.songdexv.springboot.dao.model.test.SysUserRole">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <result column="sys_user_id" jdbcType="BIGINT" property="sysUserId" />
-    <result column="role_id" jdbcType="BIGINT" property="roleId" />
-  </resultMap>
-  <resultMap id="BaseResultMap" type="com.songdexv.springboot.dao.model.test.SysUserRole">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <result column="sys_user_id" jdbcType="BIGINT" property="sysUserId" />
-    <result column="role_id" jdbcType="BIGINT" property="roleId" />
-  </resultMap>
 </mapper>
