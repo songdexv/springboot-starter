@@ -18,6 +18,7 @@ import org.apache.ibatis.reflection.DefaultReflectorFactory;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.ReflectorFactory;
 import org.apache.ibatis.reflection.SystemMetaObject;
+import org.springframework.stereotype.Component;
 
 /**
  * @author songdexu
@@ -28,6 +29,7 @@ import org.apache.ibatis.reflection.SystemMetaObject;
         method = "prepare",
         args = {Connection.class, Integer.class}
 ))
+@Component
 public class TableShardInterceptor implements Interceptor {
     private static final ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
 
@@ -97,7 +99,7 @@ public class TableShardInterceptor implements Interceptor {
         if (target instanceof StatementHandler) {
             return Plugin.wrap(target, this);
         }
-        return null;
+        return target;
     }
 
     @Override

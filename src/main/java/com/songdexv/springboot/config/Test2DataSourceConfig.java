@@ -26,6 +26,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageInterceptor;
+import com.songdexv.springboot.mybatis.TableShardInterceptor;
 
 /**
  * Created by songdexv on 2017/4/27.
@@ -57,6 +58,7 @@ public class Test2DataSourceConfig {
         properties.setProperty("params", "count=countSql");
         pageInterceptor.setProperties(properties);
         bean.setPlugins(new Interceptor[] {pageInterceptor});
+
 
         return bean.getObject();
     }

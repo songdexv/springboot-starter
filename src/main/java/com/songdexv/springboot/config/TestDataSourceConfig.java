@@ -35,6 +35,8 @@ import com.songdexv.springboot.mybatis.TableShardInterceptor;
 @EnableTransactionManagement
 public class TestDataSourceConfig {
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(TestDataSourceConfig.class);
+    @Autowired
+    private TableShardInterceptor tableShardInterceptor;
 
     @Bean(name = "testDataSource")
     @Primary
@@ -59,7 +61,8 @@ public class TestDataSourceConfig {
         properties.setProperty("returnPageInfo", "check");
         properties.setProperty("params", "count=countSql");
         pageInterceptor.setProperties(properties);
-        bean.setPlugins(new Interceptor[] {pageInterceptor});
+
+        bean.setPlugins(new Interceptor[] {pageInterceptor, tableShardInterceptor});
 
         return bean.getObject();
     }
