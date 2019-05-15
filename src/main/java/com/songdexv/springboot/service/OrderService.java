@@ -8,9 +8,9 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.github.pagehelper.PageHelper;
 import com.songdexv.springboot.dao.mapper.test2.TOrderMapper;
 import com.songdexv.springboot.dao.model.test2.TOrder;
-import com.github.pagehelper.PageHelper;
 
 /**
  * Created by songdexv on 2017/4/27.
@@ -21,7 +21,7 @@ public class OrderService {
     @Autowired
     private TOrderMapper orderMapper;
 
-//    @Transactional(value = "test2TransactionManager")
+    @Transactional(value = "test2TransactionManager")
     public int saveOrder(long userId, String orderName, long orderAmount) {
         TOrder order = new TOrder();
         order.setUserId(userId);
@@ -35,6 +35,11 @@ public class OrderService {
         }
 
         return result;
+    }
+
+    @Transactional(value = "test2TransactionManager")
+    public int saveOrder(TOrder order) {
+        return orderMapper.insert(order);
     }
 
     public List<TOrder> getOrderByPage(int pageNo, int pageSize) {

@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Created by songdexv on 2017/8/3.
  */
-@Configuration
+//@Configuration
 @EnableConfigurationProperties(ZookeeperServerProperties.class)
 public class ZookeeperConfig implements CommandLineRunner {
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(ZookeeperConfig.class);

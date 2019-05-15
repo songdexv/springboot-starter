@@ -4,7 +4,7 @@ spring:
     datasource:
       test:
         name: test
-        url: jdbc:mysql://127.0.0.1:3306/test
+        url: jdbc:mysql://127.0.0.1:3307/test
         username: root
         password: root
         driver-class-name: com.mysql.jdbc.Driver
@@ -23,7 +23,7 @@ spring:
         maxOpenPreparedStatements: 20
       test2:
         name: test
-        url: jdbc:mysql://127.0.0.1:3306/test2
+        url: jdbc:mysql://127.0.0.1:3307/test2
         username: root
         password: root
         driver-class-name: com.mysql.jdbc.Driver
@@ -58,7 +58,7 @@ spring:
       timeout: 10000
       sentinel:
         master: mymaster
-        nodes: 10.94.182.99:8479,10.94.182.101:8479,10.94.173.219:8479
+        nodes: 127.0.0.1:8749
 logging:
   level:
     root: INFO

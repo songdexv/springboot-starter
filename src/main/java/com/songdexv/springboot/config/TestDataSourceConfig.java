@@ -10,32 +10,37 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.support.TransactionTemplate;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageInterceptor;
+import com.songdexv.springboot.mybatis.TableShardInterceptor;
 
 /**
  * Created by songdexv on 2017/4/27.
  */
 @Configuration
-@EnableConfigurationProperties(TestDataSourceProperties.class)
 @EnableTransactionManagement
 public class TestDataSourceConfig {
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(TestDataSourceConfig.class);
-    @Autowired
-    private TestDataSourceProperties testDataSourceProperties;
 
     @Bean(name = "testDataSource")
     @Primary
+    @ConfigurationProperties(prefix = "spring.datasource.test")
     public DataSource testDataSource() {
-        return DataSourceUtil.getDruidDataSource(testDataSourceProperties);
+        return DataSourceBuilder.create().type(DruidDataSource.class).build();
     }
 
     @Bean(name = "testSqlSessionFactory")
@@ -64,5 +69,17 @@ public class TestDataSourceConfig {
     public PlatformTransactionManager testTransactionManager(@Qualifier("testDataSource") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
+    @Bean(name="testTransactionTemplate")
+    public TransactionTemplate test2TransactionTemplate(@Qualifier("testTransactionManager")
+                                                                    PlatformTransactionManager transactionManager) {
+        TransactionTemplate transactionTemplate = new TransactionTemplate(transactionManager);
+        transactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+        transactionTemplate.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);
+        return transactionTemplate;
+    }
 
+    @Bean(name = "testJdbcTemplate")
+    public JdbcTemplate testJdbcTemplate(@Qualifier("testDataSource") DataSource dataSource) {
+        return new JdbcTemplate(dataSource);
+    }
 }

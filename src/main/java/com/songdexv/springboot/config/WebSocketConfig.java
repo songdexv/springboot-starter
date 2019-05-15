@@ -11,8 +11,8 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
  * @author songdexv
  *
  */
-@Configuration
-@EnableWebSocketMessageBroker
+//@Configuration
+//@EnableWebSocketMessageBroker
 public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
     /*

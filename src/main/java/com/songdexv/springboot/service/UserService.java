@@ -57,6 +57,10 @@ public class UserService {
         return userMapper.insert(user);
     }
 
+    @Transactional(value = "testTransactionManager")
+    public int saveUser(TUser user) {
+        return userMapper.insert(user);
+    }
     @CacheEvict(key = "'selectByUserName' + 'I' + #userName")
     public int deleteUser(String userName) {
         Example example = new Example(TUser.class);
