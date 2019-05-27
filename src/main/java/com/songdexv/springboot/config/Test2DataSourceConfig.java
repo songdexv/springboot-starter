@@ -9,11 +9,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -26,7 +24,6 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageInterceptor;
-import com.songdexv.springboot.mybatis.TableShardInterceptor;
 
 /**
  * Created by songdexv on 2017/4/27.
@@ -59,7 +56,6 @@ public class Test2DataSourceConfig {
         pageInterceptor.setProperties(properties);
         bean.setPlugins(new Interceptor[] {pageInterceptor});
 
-
         return bean.getObject();
     }
 
@@ -68,8 +64,9 @@ public class Test2DataSourceConfig {
         return new DataSourceTransactionManager(dataSource);
     }
 
-    @Bean(name="test2TransactionTemplate")
-    public TransactionTemplate test2TransactionTemplate(@Qualifier("test2TransactionManager") PlatformTransactionManager transactionManager) {
+    @Bean(name = "test2TransactionTemplate")
+    public TransactionTemplate test2TransactionTemplate(
+            @Qualifier("test2TransactionManager") PlatformTransactionManager transactionManager) {
         TransactionTemplate transactionTemplate = new TransactionTemplate(transactionManager);
         transactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
         transactionTemplate.setIsolationLevel(TransactionDefinition.ISOLATION_REPEATABLE_READ);

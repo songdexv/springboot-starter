@@ -1,67 +1,69 @@
 server:
-  port: 8080
+  port: 8082
 spring:
-    datasource:
-      test:
-        name: test
-        url: jdbc:mysql://127.0.0.1:3307/test
-        username: root
-        password: root
-        driver-class-name: com.mysql.jdbc.Driver
-        filters: stat
-        maxActive: 20
-        initialSize: 1
-        maxWait: 60000
-        minIdle: 1
-        timeBetweenEvictionRunsMillis: 60000
-        minEvictableIdleTimeMillis: 300000
-        validationQuery: select 'x'
-        testWhileIdle: true
-        testOnBorrow: false
-        testOnReturn: false
-        poolPreparedStatements: true
-        maxOpenPreparedStatements: 20
-      test2:
-        name: test
-        url: jdbc:mysql://127.0.0.1:3307/test2
-        username: root
-        password: root
-        driver-class-name: com.mysql.jdbc.Driver
-        filters: stat
-        maxActive: 20
-        initialSize: 1
-        maxWait: 60000
-        minIdle: 1
-        timeBetweenEvictionRunsMillis: 60000
-        minEvictableIdleTimeMillis: 300000
-        validationQuery: select 'x'
-        testWhileIdle: true
-        testOnBorrow: false
-        testOnReturn: false
-        poolPreparedStatements: true
-        maxOpenPreparedStatements: 20
-    cache:
-      cache-names: users,orders
-      caffeine:
-        spec: maximumSize=500,expireAfterAccess=60s
-      type: caffeine
-    redis:
-      database: 0
-      #host: 10.94.182.100
-      #port: 8813
-      password: passwd
-      pool:
-        max-active: 8
-        max-idle: 8
-        max-wait: 5000
-        min-idle: 2
-      timeout: 10000
-      sentinel:
-        master: mymaster
-        nodes: 127.0.0.1:8749
+  datasource:
+    test:
+      name: test
+      url: jdbc:mysql://127.0.0.1:3307/test
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+      filters: stat,wall
+      maxActive: 20
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+    test2:
+      name: test
+      url: jdbc:mysql://127.0.0.1:3307/test2
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+      filters: stat
+      maxActive: 20
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+  cache:
+    cache-names: users,orders
+    caffeine:
+      spec: maximumSize=500,expireAfterAccess=60s
+    type: caffeine
+  redis:
+    database: 0
+    #host: 10.94.182.100
+    #port: 8813
+    password: passwd
+#    pool:
+#      max-active: 8
+#      max-idle: 8
+#      max-wait: 5000
+#      min-idle: 2
+#    timeout: 10000
+#    sentinel:
+#      master: mymaster
+#      nodes: 127.0.0.1:8749
+  application:
+    name: springboot-starter
 logging:
   level:
-    root: INFO
+    root: DEBUG
     com.songdexv: DEBUG
 
 management:
@@ -82,3 +84,7 @@ web:
     autoconfig: false
     loginUrl: http://locahost/login
     decision: UnanimousBased
+
+elasticjob:
+     serverlists: 127.0.0.1:2181
+     namespace: boot-job
